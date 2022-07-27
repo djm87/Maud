@@ -7,7 +7,7 @@
     <property name="dropbox" location="${user.home}/Dropbox/Maud"/>
     <property name="src" location="src"/>
     <property name="web" location="src/web"/>
-    <property name="inst" location="Installers"/>
+    <property name="inst" location="/Users/danielsavage/Projects/maud"/>
     <!--property name="build" location="${user.home}/Library/Developer/Maud/build"/-->
     <property name="build_ant" location="${build}/build.ant"/>
     <property name="libs" location="libs"/>
@@ -908,11 +908,11 @@
         <copy file="${build}/Maud_dev.jar" tofile="${installfulldirMac}/Maud.jar"/>
         <copy file="${build}/Maud_dev.jar" tofile="${installfulldirMac64}/Maud.jar"/>
         <copy file="${build}/Maud_dev.jar" tofile="${installfulldirUnix}/lib/Maud.jar"/-->
-        <copy file="${build}/Maud_dev.jar" tofile="${installfulldirLinux64}/lib/Maud.jar"/>
-        <copy file="${build}/Maud_dev.jar" tofile="${installfulldirLinux64ojdk}/lib/Maud.jar"/>
+        <!--copy file="${build}/Maud_dev.jar" tofile="${installfulldirLinux64}/lib/Maud.jar"/-->
+        <!--copy file="${build}/Maud_dev.jar" tofile="${installfulldirLinux64ojdk}/lib/Maud.jar"/-->
         <!--copy file="${build}/Maud_dev.jar" tofile="${installfulldirWindows}/lib/Maud.jar"/-->
-        <copy file="${build}/Maud_dev.jar" tofile="${installfulldirWin64}/lib/Maud.jar"/>
-        <copy file="${build}/Maud_dev.jar" tofile="${installfulldirWin64ojdk}/lib/Maud.jar"/>
+        <!--copy file="${build}/Maud_dev.jar" tofile="${installfulldirWin64}/lib/Maud.jar"/-->
+        <!--copy file="${build}/Maud_dev.jar" tofile="${installfulldirWin64ojdk}/lib/Maud.jar"/-->
         <!--copy file="${build}/Maud_dev.jar" tofile="${installfulldirUnixNJ}/lib/Maud.jar"/>
         <copy file="${build}/Maud_dev.jar" tofile="${installfulldirLinux64NJ}/lib/Maud.jar"/>
         <copy file="${build}/Maud_dev.jar" tofile="${installfulldirWindowsNJ}/lib/Maud.jar"/>
@@ -2045,7 +2045,7 @@
     </target>
 
 
-    <target name="bundle" depends="copy_full">
+    <target name="bundle" depends="build_full">
         <!-- Import the AppBundlerTaks from ant lib directory -->
         <taskdef name="bundleapp"
                  classname="com.oracle.appbundler.AppBundlerTask"/>
