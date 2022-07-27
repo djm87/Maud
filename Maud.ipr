@@ -4,11 +4,10 @@
     <buildFile url="file://$PROJECT_DIR$/build.xml">
       <additionalClassPath>
         <entry dir="file://$APPLICATION_HOME_DIR$/lib/ant/lib" />
-        <entry path="file://$PROJECT_DIR$/libs/commons-net-3.3.jar" />
-        <entry path="file://$PROJECT_DIR$/Installers/infinitekind-appbundler-arm/appbundler/bin/appbundler-1.1.jar" />
-        <entry path="file://$PROJECT_DIR$/Installers/infinitekind-appbundler-last/appbundler/bin/appbundler-1.0.jar" />
       </additionalClassPath>
-      <maximumHeapSize value="1024" />
+      <customJdkName value="zulu-19" />
+      <maximumHeapSize value="2048" />
+      <maximumStackSize value="4" />
     </buildFile>
   </component>
   <component name="ArtifactManager">
@@ -103,7 +102,7 @@
       <entry name="?*.jpeg" />
       <entry name="?*.jpg" />
     </wildcardResourcePatterns>
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="13" />
   </component>
   <component name="CopyrightManager" default="" />
   <component name="DependenciesAnalyzeManager">
@@ -158,6 +157,11 @@
       </inspection_tool>
     </profile>
     <version value="1.0" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Maud" options="--enable-preview --source=19" />
+    </option>
   </component>
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" />
@@ -391,7 +395,7 @@
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" project-jdk-name="13" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="zulu-19" project-jdk-type="JavaSDK" />
   <component name="ResourceManagerContainer">
     <option name="myResourceBundles">
       <value>

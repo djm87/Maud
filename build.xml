@@ -20,8 +20,10 @@
     <property name="application_OSX.title" value="Maud.app"/>
     <property name="app_osx_295" location="${user.home}/Projects/maud/osx_295"/>
     <property name="app_osx_arm" location="${user.home}/Projects/maud/osx_arm"/>
-    <!--property name="java_version" value="1.8"/>
-    <property name="JAVA_HOME" location="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"/-->
+    <!--property name="java_version" value="1.8"/-->
+    <property name="java_openjdk" location="${openjdk}"/>
+    <property name="fpsm_build" location="${fpsmBuild}"/>
+    <property name="javac_options" value="--enable-preview --source=19"/>
 
     <target name="clean" description="Delete the build files.">
         <delete dir="${build_ant}"/>
@@ -48,10 +50,12 @@
         <mkdir dir="${build}"/>
         <mkdir dir="${build_ant}"/>
         <!-- Build everything -->
-        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
+            <compilerarg line="${javac_options}" />
             <src path="${src}"/>
             <!--exclude name="it/unitn/ing/jsginfo/**" /-->
             <!--exclude name="it/unitn/ing/jgraph/**" /-->
+            <!--exclude name="com/radiographema/fpsm/**"/-->
             <exclude name="it/unitn/ing/esqui/client/**"/>
             <exclude name="it/unitn/ing/esqui/server/**"/>
             <exclude name="it/unitn/ing/esqui/wizard/MeasurementWizard.java"/>
@@ -163,7 +167,8 @@
         <mkdir dir="build"/>
         <mkdir dir="${build_ant}"/>
         <!-- Build everything -->
-        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
+            <compilerarg line="${javac_options}" />
             <src path="${src}"/>
             <!--exclude name="it/unitn/ing/jsginfo/**" /-->
             <!--exclude name="it/unitn/ing/jgraph/**" /-->
@@ -556,7 +561,7 @@
         <mkdir dir="build"/>
         <mkdir dir="${build_ant}"/>
         <!-- Build everything -->
-        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
             <src path="${src}"/>
             <exclude name="it/unitn/ing/esqui/client/**"/>
             <exclude name="it/unitn/ing/esqui/server/**"/>
@@ -708,7 +713,7 @@
         <mkdir dir="build"/>
         <mkdir dir="${build_ant}"/>
         <!-- Build everything -->
-        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
             <src path="${src}"/>
             <include name="com/deadmoo/xgridagent/**"/>
             <include name="jint/scimark2/**"/>
@@ -771,7 +776,7 @@
         <mkdir dir="build"/>
         <mkdir dir="${build_ant}"/>
         <!-- Build everything -->
-        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
             <src path="${src}"/>
             <include name="it/unitn/ing/xgridclient/**"/>
             <classpath>
@@ -821,7 +826,7 @@
         <mkdir dir="build"/>
         <mkdir dir="${build_ant}"/>
         <!-- Build everything -->
-        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
             <src path="${src}"/>
             <include name="it/unitn/ing/xgridclient/XGridHello.java"/>
             <classpath>
@@ -857,7 +862,7 @@
         <mkdir dir="build"/>
         <mkdir dir="${build_ant}"/>
         <!-- Build everything -->
-        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
             <src path="${src}"/>
             <include name="it/unitn/ing/xgridagent/XGridJavaLauncher.java"/>
             <!--include name="HTTPClient/*.java" />
@@ -1015,7 +1020,8 @@
         <mkdir dir="build"/>
         <mkdir dir="${build_ant}"/>
         <!-- Build everything -->
-        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
+            <compilerarg line="${javac_options}" />
             <src path="${src}"/>
             <!--exclude name="it/unitn/ing/jsginfo/*" /-->
             <!--exclude name="it/unitn/ing/jgraph/*" /-->
@@ -1282,7 +1288,7 @@
         <mkdir dir="build"/>
         <mkdir dir="${build_ant}"/>
         <!-- Build everything -->
-        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
             <src path="${src}/it/unitn/ing/jsginfo"/>
             <exclude name="it/unitn/ing/jsginfo/sglib.java"/>
             <exclude name="it/unitn/ing/jsginfo/sginfoh.tmp.java"/>
@@ -1324,7 +1330,7 @@
         <mkdir dir="build"/>
         <mkdir dir="${build_ant}"/>
         <!-- Build everything -->
-        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
             <src path="${src}/ec"/>
             <exclude name="vector/AtomVectorIndividual.java"/>
             <exclude name="teambots/**"/>
@@ -1448,7 +1454,7 @@
         <mkdir dir="build"/>
         <mkdir dir="${build_ant}"/>
         <!-- Build everything -->
-        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
             <src path="${src}/it/unitn/ing/jgraph"/>
             <classpath>
                 <pathelement location="${build}/Maud_dev.jar"/>
@@ -1495,7 +1501,7 @@
         <mkdir dir="build"/>
         <mkdir dir="${build_ant}"/>
         <!-- Build everything -->
-        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+        <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
             <src path="${src}/gov/noaa/pmel"/>
             <!--classpath>
 			<pathelement location="${build}/Maud_dev.jar"/>
@@ -1574,7 +1580,7 @@
     <delete dir="${build_ant}" />
     <mkdir dir="build" />
     <mkdir dir="${build_ant}" />
-    <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" encoding="UTF-8">
+    <javac destdir="${build_ant}" optimize="on" debug="on" target="${java_version}" source="${java_version}" encoding="UTF-8">
     	<src path="ImageJ"/>
       <exclude name="plugins/*" />
     </javac>
@@ -2050,7 +2056,8 @@
     <target name="bundle" depends="build_full">
         <!-- Import the AppBundlerTaks from ant lib directory -->
         <taskdef name="bundleapp"
-                 classname="com.oracle.appbundler.AppBundlerTask"/>
+                 classname="com.oracle.appbundler.AppBundlerTask"
+                 classpath="libs/commons-net-3.3.jar;libs/ant-libs/infinitekind-appbundler-last/appbundler/bin/appbundler-1.2.jar"/>
 
         <bundleapp outputdirectory="${app_osx}/"
                    name="Maud"
@@ -2064,7 +2071,7 @@
                    applicationCategory="public.app-category.productivity">
 
             <!-- The directory where your OpenJDK runtime is. -->
-            <runtime dir="${inst}/Home/"/>
+            <runtime dir="${java_openjdk}/"/>
 
             <!-- The bundleapp task doesn't support classpathref so all
                 the run classpath entries must be stated here too.
@@ -2119,8 +2126,12 @@
             <option value="-Dcom.apple.macos.useScreenMenuBar=true"/>
             <option value="-Dapple.awt.application.name=Maud"/>
             <option value="-Dcom.apple.smallTabs=true"/>
-
             <option value="-Xmx16384M"/>
+            <option value="--enable-preview"/>
+            <option value="--enable-native-access=ALL-UNNAMED"/>
+            <option value="--add-opens"/>
+            <option value="java.base/java.net=ALL-UNNAMED"/>
+            <option value="-Djava.library.path=."/>
         </bundleapp>
 
         <mkdir dir="${app_osx}/Maud.app/Contents/Frameworks"/>
@@ -2141,7 +2152,7 @@
                    applicationCategory="public.app-category.productivity"-->
 
         <!-- The directory where your OpenJDK runtime is. -->
-        <!--runtime dir="${inst}/Home/"/-->
+        <!--runtime dir="${java_openjdk}/"/-->
 
         <!-- The bundleapp task doesn't support classpathref so all
                 the run classpath entries must be stated here too.
@@ -2208,12 +2219,18 @@
         <exec executable="chmod">
             <arg line=" -R a+x ${app_osx}/Maud.app/Contents/MacOS/mtex"/>
         </exec>
+        <copy file="${src}/com/radiographema/fpsm/maci64/libfpsm_shared.dylib"
+              tofile="${app_osx}/Maud.app/Contents/PlugIns/Home/lib/libfpsm_shared.dylib"/>
+        <exec executable="chmod">
+            <arg line=" -R a+x ${app_osx}/Maud.app/Contents/PlugIns/Home/lib/libfpsm_shared.dylib"/>
+        </exec>
     </target>
 
     <target name="bundle_arm64" depends="build_full">
         <!-- Import the AppBundlerTaks from ant lib directory -->
         <taskdef name="bundleapp"
-                 classname="com.radiographema.appbundler.AppBundlerTask"/>
+                 classname="com.radiographema.appbundler.AppBundlerTask"
+                 classpath="libs/commons-net-3.3.jar;libs/ant-libs/infinitekind-appbundler-arm/appbundler/bin/appbundler-1.2.jar"/>
 
         <bundleapp outputdirectory="${app_osx_arm}/"
                    name="Maud"
@@ -2227,7 +2244,7 @@
                    applicationCategory="public.app-category.productivity">
 
             <!-- The directory where your OpenJDK runtime is. -->
-            <runtime dir="${inst}/Home_aarch64/"/>
+            <runtime dir="${java_openjdk}/"/>
 
             <!-- The bundleapp task doesn't support classpathref so all
                 the run classpath entries must be stated here too.
@@ -2281,11 +2298,15 @@
             <option value="-Dcom.apple.macos.useScreenMenuBar=true"/>
             <option value="-Dapple.awt.application.name=Maud"/>
             <option value="-Dcom.apple.smallTabs=true"/>
-
             <option value="-Xmx16384M"/>
+            <option value="--enable-preview"/>
+            <option value="--enable-native-access=ALL-UNNAMED"/>
+            <option value="--add-opens"/>
+            <option value="java.base/java.net=ALL-UNNAMED"/>
+            <option value="-Djava.library.path=."/>
         </bundleapp>
 
-        <mkdir dir="${app_osx}/Maud.app/Contents/Frameworks"/>
+        <mkdir dir="${app_osx_arm}/Maud.app/Contents/Frameworks"/>
         <!--copy file="cctbxForMaud/build/Debug/libcctbxForMaud.dylib" tofile="${inst}/Maud_mac/Maud.app/Contents/Plugins/Home/jre/lib/libcctbxForMaud.dylib" /-->
         <!--copy file="cctbxForMaud/libcctbxForMaud.dylib"
               tofile="${app_osx}/Maud.app/Contents/Frameworks/libcctbxForMaud.dylib"/-->
@@ -2303,7 +2324,7 @@
                    applicationCategory="public.app-category.productivity"-->
 
         <!-- The directory where your OpenJDK runtime is. -->
-        <!--runtime dir="${inst}/Home/"/-->
+        <!--runtime dir="${java_openjdk}/"/-->
 
         <!-- The bundleapp task doesn't support classpathref so all
                 the run classpath entries must be stated here too.
@@ -2363,19 +2384,25 @@
         <!--copy file="cctbxForMaud/build/Debug/libcctbxForMaud.dylib" tofile="${inst}/Maud_mac/Maud.app/Contents/Plugins/Home/jre/lib/libcctbxForMaud.dylib" /-->
         <!--copy file="cctbxForMaud/libcctbx.dylib" tofile="${inst}/Maud_mac/Maud.app/Contents/MacOS/lib/libcctbx.dylib" />
         <copy file="cctbxForMaud/libcctbxForMaud.dylib" tofile="${inst}/Maud_mac/Maud.app/Contents/MacOS/libcctbxForMaud.dylib" /-->
-        <mkdir dir="${app_osx}/Maud.app/Contents/MacOS/mtex" />
-        <copy todir="${app_osx}/Maud.app/Contents/MacOS/mtex" >
+        <mkdir dir="${app_osx_arm}/Maud.app/Contents/MacOS/mtex" />
+        <copy todir="${app_osx_arm}/Maud.app/Contents/MacOS/mtex" >
             <fileset dir="${src}/com/jtex/external/bin/maci64" includes="**"/>
         </copy>
         <exec executable="chmod">
-            <arg line=" -R a+x ${app_osx}/Maud.app/Contents/MacOS/mtex"/>
+            <arg line=" -R a+x ${app_osx_arm}/Maud.app/Contents/MacOS/mtex"/>
+        </exec>
+        <copy file="${src}/com/radiographema/fpsm/maca64/libfpsm_shared.dylib"
+              tofile="${app_osx_arm}/Maud.app/Contents/PlugIns/Home/lib/libfpsm_shared.dylib"/>
+        <exec executable="chmod">
+            <arg line=" -R a+x ${app_osx_arm}/Maud.app/Contents/PlugIns/Home/lib/libfpsm_shared.dylib"/>
         </exec>
     </target>
 
     <target name="bundle_alt295" depends="build_full">
         <!-- Import the AppBundlerTaks from ant lib directory -->
         <taskdef name="bundleapp"
-                 classname="com.oracle.appbundler.AppBundlerTask"/>
+                 classname="com.oracle.appbundler.AppBundlerTask"
+                 classpath="libs/commons-net-3.3.jar;libs/ant-libs/infinitekind-appbundler-last/appbundler/bin/appbundler-1.2.jar"/>
 
         <bundleapp outputdirectory="${app_osx_295}/"
                    name="Maud"
@@ -2389,7 +2416,7 @@
                    applicationCategory="public.app-category.productivity">
 
             <!-- The directory where your OpenJDK runtime is. -->
-            <runtime dir="${inst}/Home/"/>
+            <runtime dir="${java_openjdk}/"/>
 
             <!-- The bundleapp task doesn't support classpathref so all
                 the run classpath entries must be stated here too.
@@ -2458,7 +2485,37 @@
         </exec>
     </target>
 
+    <target name="sign_jdk" description="Sign the jdk">
+        <apply dir="${java_openjdk}" executable="codesign">
+            <arg line="-v -f -s &quot;Developer ID Application: Luca Lutterotti (U2NJNG54F3)&quot; "/>
+            <fileset dir="${java_openjdk}" />
+        </apply>
+        <!--exec dir="${app_osx}" executable="codesign" os="Mac OS X">
+            <arg line="-v -f -s &quot;Developer ID Application: Luca Lutterotti (U2NJNG54F3)&quot; ${app_osx}/Maud.app"/>
+        </exec>
+        <exec dir="${java_openjdk}" executable="codesign" os="Mac OS X">
+            <arg line="-d ${java_openjdk}/Maud.app"/>
+        </exec-->
+        <!-- verify codesign -->
+        <exec executable="codesign" dir="${java_openjdk}" failonerror="true">
+            <arg line="-vv bin/java"/>
+        </exec>
+        <!-- verify gatekeeper -->
+        <exec executable="spctl" dir="${java_openjdk}" failonerror="true">
+            <arg line="-vv --assess --type execute bin/java"/>
+        </exec>
+    </target>
+
     <target name="sign_bundle" depends="bundle" description="Sign the macOS application">
+        <exec dir="${app_osx}/Maud.app/Contents/PlugIns/Home" executable="rm" os="Mac OS X">
+            <arg line="-r legal"/>
+        </exec>
+        <exec dir="${app_osx}/Maud.app/Contents/PlugIns/Home/lib/server" executable="chmod" os="Mac OS X">
+            <arg line="u+w classes.jsa"/>
+        </exec>
+        <exec dir="${app_osx}/Maud.app/Contents/PlugIns/Home/lib/server" executable="chmod" os="Mac OS X">
+            <arg line="u+w classes_nocoops.jsa"/>
+        </exec>
         <apply dir="${app_osx}" executable="codesign">
             <arg line="-v -f -s &quot;Developer ID Application: Luca Lutterotti (U2NJNG54F3)&quot; "/>
             <fileset dir="${app_osx}/Maud.app/Contents/PlugIns" />
@@ -2493,6 +2550,54 @@
     <target name="build_installer_osx" depends="sign_bundle" description="Build the macos installers">
         <copy file="${app_osx}/.DS_Store_default" tofile="${app_osx}/.DS_Store"/>
         <exec dir="${app_osx}" executable="/Users/luca/bin/mkdmg.pl" os="Mac OS X">
+            <arg line="Maud.dmg.gz Maud.app .background .DS_Store"/>
+        </exec>
+    </target>
+
+    <target name="sign_bundle_arm64" depends="bundle_arm64" description="Sign the macOS for arm64 application">
+        <exec dir="${app_osx_arm}/Maud.app/Contents/PlugIns/Home" executable="rm" os="Mac OS X">
+            <arg line="-r legal"/>
+        </exec>
+        <exec dir="${app_osx_arm}/Maud.app/Contents/PlugIns/Home/lib/server" executable="chmod" os="Mac OS X">
+            <arg line="u+w classes.jsa"/>
+        </exec>
+        <exec dir="${app_osx_arm}/Maud.app/Contents/PlugIns/Home/lib/server" executable="chmod" os="Mac OS X">
+            <arg line="u+w classes_nocoops.jsa"/>
+        </exec>
+        <apply dir="${app_osx_arm}" executable="codesign">
+            <arg line="-v -f -s &quot;Developer ID Application: Luca Lutterotti (U2NJNG54F3)&quot; "/>
+            <fileset dir="${app_osx_arm}/Maud.app/Contents/PlugIns" />
+        </apply>
+        <apply dir="${app_osx_arm}" executable="codesign">
+            <arg line="-v -f -s &quot;Developer ID Application: Luca Lutterotti (U2NJNG54F3)&quot; "/>
+            <fileset dir="${app_osx_arm}/Maud.app/Contents/Java" />
+        </apply>
+        <!--apply dir="${app_osx_arm}" executable="codesign">
+            <arg line="-v -f -s &quot;Developer ID Application: Luca Lutterotti (U2NJNG54F3)&quot; "/>
+            <fileset dir="${app_osx_arm}/Maud.app/Contents/MacOS/mtex" />
+        </apply-->
+        <exec dir="${app_osx_arm}" executable="codesign" os="Mac OS X">
+            <arg line="-v -f -s &quot;Developer ID Application: Luca Lutterotti (U2NJNG54F3)&quot; ${app_osx_arm}/Maud.app/Contents/PlugIns/Home/release"/>
+        </exec>
+        <exec dir="${app_osx_arm}" executable="codesign" os="Mac OS X">
+            <arg line="-v -f -s &quot;Developer ID Application: Luca Lutterotti (U2NJNG54F3)&quot; ${app_osx_arm}/Maud.app"/>
+        </exec>
+        <exec dir="${app_osx_arm}" executable="codesign" os="Mac OS X">
+            <arg line="-d ${app_osx_arm}/Maud.app"/>
+        </exec>
+        <!-- verify codesign -->
+        <exec executable="codesign" dir="${app_osx_arm}" failonerror="true">
+            <arg line="-vv Maud.app"/>
+        </exec>
+        <!-- verify gatekeeper -->
+        <exec executable="spctl" dir="${app_osx_arm}" failonerror="true">
+            <arg line="-vv --assess --type execute Maud.app"/>
+        </exec>
+    </target>
+
+    <target name="build_installer_osx_arm64" depends="sign_bundle_arm64" description="Build the macos installers">
+        <copy file="${app_osx_arm}/.DS_Store_default" tofile="${app_osx_arm}/.DS_Store"/>
+        <exec dir="${app_osx_arm}" executable="/Users/luca/bin/mkdmg.pl" os="Mac OS X">
             <arg line="Maud.dmg.gz Maud.app .background .DS_Store"/>
         </exec>
     </target>

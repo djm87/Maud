@@ -206,16 +206,16 @@ public class StructureFactorModel extends XRDcat {
 	            hklFormatter.write(refl.getH(), printStream);
             hklFormatter.write(refl.getK(), printStream);
             hklFormatter.write(refl.getL(), printStream);
-            FFormatter.write(new Float(expSF * expSF * ctrl), printStream);
-            FFormatter.write(new Float(esdSF * esdSF * ctrl), printStream);
+            FFormatter.write(expSF * expSF * ctrl, printStream);
+            FFormatter.write(esdSF * esdSF * ctrl, printStream);
             printStream.print(Constants.lineSeparator);
             }
           }
           hklFormatter.write(0, printStream);
           hklFormatter.write(0, printStream);
           hklFormatter.write(0, printStream);
-          FFormatter.write(new Float(Zelectron), printStream);
-          FFormatter.write(new Float(0.0), printStream);
+          FFormatter.write(Zelectron, printStream);
+          FFormatter.write(0.0, printStream);
           printStream.print(Constants.lineSeparator);
         } catch (InvalidFormatException e) {
           e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -246,16 +246,16 @@ public class StructureFactorModel extends XRDcat {
 		          hklFormatter.write(refl.getH(), printStream);
             hklFormatter.write(refl.getK(), printStream);
             hklFormatter.write(refl.getL(), printStream);
-            FFormatter.write(new Float(expSF), printStream);
-            FFormatter.write(new Float(esdSF), printStream);
+            FFormatter.write(expSF, printStream);
+            FFormatter.write(esdSF, printStream);
             printStream.print(Constants.lineSeparator);
             }
           }
           hklFormatter.write(0, printStream);
           hklFormatter.write(0, printStream);
           hklFormatter.write(0, printStream);
-          FFormatter.write(new Float(Zelectron), printStream);
-          FFormatter.write(new Float(0.0), printStream);
+          FFormatter.write(Zelectron, printStream);
+          FFormatter.write(0.0, printStream);
           printStream.print(Constants.lineSeparator);
         } catch (InvalidFormatException e) {
           e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.

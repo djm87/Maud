@@ -2304,7 +2304,7 @@ public static final String getSpaceGroup(int index, int sgconv) {
       for (int j = i + 1; j < getFullAtomList().size(); j++) {
         AtomSite ato2 = getFullAtomList().get(j);
         if (ato1.equalsByDistance(ato2))
-          found.add(new Integer(j));
+          found.add(j);
       }
       if (found.size() > 0)
         for (int j = found.size() - 1; j >= 0; j--)
@@ -3030,6 +3030,7 @@ public static final String getSpaceGroup(int index, int sgconv) {
 	  Vector<Reflection> reflectionList = new Vector<Reflection>(100, 100);
 	  if (SpaceGroups.useCCTBX()) {
 // todo
+
 	  } else {
 		  int im, M2;
 //    char F_Convention;

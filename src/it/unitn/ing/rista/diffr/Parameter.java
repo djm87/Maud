@@ -704,7 +704,7 @@ public class Parameter extends Object implements Cloneable, basicObj {
     disposed = true;
   }
 
-  protected void finalize() throws Throwable {
+/*  protected void finalize() throws Throwable {
     if (!disposed)
       dispose();
     registeredParameters = null;
@@ -716,7 +716,7 @@ public class Parameter extends Object implements Cloneable, basicObj {
     constant = null;
     error = null;
     super.finalize();
-  }
+  }*/
 
   public void setComponent(Component edField) {
     editingField = (JTextField) edField;

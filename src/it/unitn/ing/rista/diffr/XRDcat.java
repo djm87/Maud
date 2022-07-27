@@ -2637,7 +2637,7 @@ public class XRDcat extends BaseFactoryObject implements basicObj, Cloneable {
 
   }
 
-    @Override
+/*    @Override
   protected void finalize() throws Throwable {
 //		if (Constants.testing)
 //			System.out.println("DEBUG: " + this.toXRDcatString() + " finalizing");
@@ -2658,7 +2658,7 @@ public class XRDcat extends BaseFactoryObject implements basicObj, Cloneable {
 
     super.finalize();
 
-  }
+  }*/
 
   public static final void printf(String message, ProgressFrame prF) {
     if (prF != null)

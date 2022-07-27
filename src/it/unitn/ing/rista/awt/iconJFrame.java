@@ -48,9 +48,4 @@ public class iconJFrame extends JFrame {
         // Toolkit.getDefaultToolkit().getImage(Misc.getResource(Constants.programIcon));
   }
 
-  protected void finalize() throws Throwable {
-//		if (Constants.testing)
-//			System.out.println("DEBUG: " + this.toXRDcatString() + " finalizing");
-    super.finalize();
-  }
 }

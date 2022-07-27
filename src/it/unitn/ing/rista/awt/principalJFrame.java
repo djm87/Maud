@@ -92,17 +92,17 @@ public class principalJFrame extends myJFrame {
     super.setTitle(title);
   }
 
-  public URL getCodeBase() {
+/*  public URL getCodeBase() {
     if (com.radiographema.MaudApplet.fromApplet || Constants.webStart)
       return Constants.ourCodebase;
     else
       return null;
-  }
+  }*/
 
   public Container getRootParent() {
-    if (com.radiographema.MaudApplet.fromApplet)
-      return com.radiographema.MaudApplet.theApplet;
-    else
+//    if (com.radiographema.MaudApplet.fromApplet)
+//      return com.radiographema.MaudApplet.theApplet;
+//    else
       return this;
   }
 
@@ -118,7 +118,7 @@ public class principalJFrame extends myJFrame {
   public void retrieveParameters() {}
 
   public void restoreFile_Action() {
-    if (!com.radiographema.MaudApplet.fromApplet || Constants.macos) {
+    if (/*!com.radiographema.MaudApplet.fromApplet ||*/ Constants.macos) {
       String folderAndName[] = new String[2];
       folderAndName[0] = Constants.documentsDirectory;
       folderAndName[1] = Constants.backupFile;
@@ -434,8 +434,8 @@ public class principalJFrame extends myJFrame {
     setVisible(false);         // hide the Frame
     Constants.close();
 	  dispose();      // tell windowing system to free resources
-    if (!com.radiographema.MaudApplet.fromApplet)
-      System.exit(0);
+//    if (!com.radiographema.MaudApplet.fromApplet)
+    System.exit(0);
   }
 
   public void dispose() {

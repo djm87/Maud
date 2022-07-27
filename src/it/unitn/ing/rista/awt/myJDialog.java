@@ -417,14 +417,6 @@ public class myJDialog extends JDialog implements ParentFrame, ClipboardOwner {
     setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
   }
 
-  protected void finalize() throws Throwable {
-//		if (Constants.testing)
-//			System.out.println("DEBUG: dialog " + this.getTitle() + " finalizing");
-
-    super.finalize();
-
-  }
-
   static final String title = "Program registration";
   static final String label0 = "Insert the license and password ID's to register MAUD";
   static final String label2 = "License ID: ";

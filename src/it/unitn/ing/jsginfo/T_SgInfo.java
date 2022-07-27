@@ -1968,7 +1968,7 @@ System.out.println(SpecialSMx_Identity);*/
     lsmx = ListSeitzMx;
     lrmxi = ListRotMxInfo;
 
-    for (i = 0; i < nList; i++) vectorList.addElement(new Integer(i));
+    for (i = 0; i < nList; i++) vectorList.addElement(i);
 
     Collections.sort(vectorList, new listComparer());
 

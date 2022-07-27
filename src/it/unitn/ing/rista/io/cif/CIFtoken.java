@@ -190,7 +190,7 @@ public class CIFtoken extends StreamTokenizer {
 		      resetSyntax();
 		      setSyntaxTakeSpace();
 		      do {
-			      newtoken = super.nextToken();
+			      super.nextToken();
 //			      System.out.println(newtoken + " - Adding " + sval);
 			      if (sval != null) {
 				      thestring = thestring.concat(" " + sval);
@@ -214,7 +214,7 @@ public class CIFtoken extends StreamTokenizer {
 		      resetSyntax();
 		      setSyntaxTakeSpace();
 		      do {
-			      newtoken = super.nextToken();
+			      super.nextToken();
 			      if (sval != null) {
 				      thestring = thestring.concat(" " + sval);
 				      if (thestring.endsWith("\""))
@@ -233,7 +233,7 @@ public class CIFtoken extends StreamTokenizer {
             thevalue = sn.value;
             theerror = sn.error;
             thestring = sn.thestring;
-            thestringerror = new String((new Double(sn.error)).toString());
+            thestringerror = Double.toString(sn.error);
             if (sn.hasError)
               free = true;
             else

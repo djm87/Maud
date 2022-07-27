@@ -89,54 +89,54 @@ public class SitePosition extends java.lang.Object {
 	}
 
 	public String getx() {
-    return new String(translate(sign[0], "x") + translate(sign[1], "y") + translate(sign[2], "z") +
-            translateconstant(constant[0]));
+    return translate(sign[0], "x") + translate(sign[1], "y") + translate(sign[2], "z") +
+		    translateconstant(constant[0]);
   }
 
   public String gety() {
-    return new String(translate(sign[3], "x") + translate(sign[4], "y") + translate(sign[5], "z") +
-            translateconstant(constant[1]));
+    return translate(sign[3], "x") + translate(sign[4], "y") + translate(sign[5], "z") +
+		    translateconstant(constant[1]);
   }
 
   public String getz() {
-    return new String(translate(sign[6], "x") + translate(sign[7], "y") + translate(sign[8], "z") +
-            translateconstant(constant[2]));
+    return translate(sign[6], "x") + translate(sign[7], "y") + translate(sign[8], "z") +
+		    translateconstant(constant[2]);
   }
 
   public String getx_i() {
-    return new String(translateconstant(constant[0]) +
-        translate(sign[0], "x") + translate(sign[1], "y") + translate(sign[2], "z"));
+    return translateconstant(constant[0]) +
+		    translate(sign[0], "x") + translate(sign[1], "y") + translate(sign[2], "z");
   }
 
   public String gety_i() {
-    return new String(translateconstant(constant[1]) +
-        translate(sign[3], "x") + translate(sign[4], "y") + translate(sign[5], "z"));
+    return translateconstant(constant[1]) +
+		    translate(sign[3], "x") + translate(sign[4], "y") + translate(sign[5], "z");
   }
 
   public String getz_i() {
-    return new String(translateconstant(constant[2]) +
-        translate(sign[6], "x") + translate(sign[7], "y") + translate(sign[8], "z"));
+    return translateconstant(constant[2]) +
+		    translate(sign[6], "x") + translate(sign[7], "y") + translate(sign[8], "z");
   }
 
   public static String translate(double asign, String alabel) {
     if (asign == 0.0)
       return "";
     else if (asign == 1.0)
-      return new String("+" + alabel);
+      return "+" + alabel;
     else if (asign == -1.0)
-      return new String("-" + alabel);
+      return "-" + alabel;
     else if (asign > 0.0)
-      return new String("+" + (new Float(asign)).toString() + " " + alabel);
+      return "+" + (float) asign + " " + alabel;
     else
-      return new String("-" + (new Float(asign)).toString() + " " + alabel);
+      return "-" + (float) asign + " " + alabel;
   }
 
   public static String translateconstant(double aconstant) {
     if (aconstant == 0.0)
       return "";
     else if (aconstant > 0.0)
-      return new String("+" + (new Float(aconstant)).toString());
+      return "+" + (float) aconstant;
     else
-      return new String("-" + (new Float(aconstant)).toString());
+      return "-" + (float) aconstant;
   }
 }
