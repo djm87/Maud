@@ -653,6 +653,11 @@ public class batchProcess {
 				  }
 			  }
 		  }
+		if (summedDataFilename != null && !summedDataFilename.isEmpty()){
+			Sample asample = analysis.getSample(0);
+			exportExperimentalComputedData(analysis, "", summedDataFilename);
+
+		}
 
 	  }
   }
@@ -698,3 +703,7 @@ public class batchProcess {
   }
 
 }
+//TODO
+//Make a wizard number run with wizard see FilePar.java line 287
+//
+//

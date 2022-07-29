@@ -6752,8 +6752,10 @@ public class DiffrDataFile extends XRDcat {
     }
 
   }
-
   public void exportExperimentalComputedData(BufferedWriter output) {
+	  exportExperimentalComputedData(output, true);
+  }
+  public void exportExperimentalComputedData(BufferedWriter output, boolean closeFile) {
 
     int numberphases = getFilePar().getActiveSample().phasesNumber();
 
@@ -6798,7 +6800,8 @@ public class DiffrDataFile extends XRDcat {
           output.newLine();
         }
         for (int i = startingindex; i < finalindex; i++) {
-          double intensE = getYData(i);
+//          double intensE = finalIntensityCalibration(getYData(i));
+			 double intensE = getYData(i);
           double intens = getFit(i);
           double xcoorddata = 0.0;
 //          if (datafile[0].originalNotCalibrated)
@@ -6814,6 +6817,7 @@ public class DiffrDataFile extends XRDcat {
         }
       } catch (IOException io) {
       }
+		if(closeFile)
       try {
         output.close();
       } catch (IOException io) {
