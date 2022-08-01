@@ -2873,13 +2873,14 @@ public class DataFileSet extends XRDcat {
 		}
 		final String label = DataFileSet.this.toXRDcatString();
 		PlotFitting plot = new PlotFitting(null, adfile, false);
+		plot.setSize(plot.defaultFrameW, plot.defaultFrameH);
 		plot.setVisible(true);
 		(new PersistentThread() {
 			@Override
 			public void executeJob() {
 
 				try {
-					TimeUnit.MILLISECONDS.sleep(3000);
+					TimeUnit.MILLISECONDS.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
