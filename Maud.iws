@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdfe55a7-bada-42d4-87e2-c852d7b689e7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Maud.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/Maud.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Maud.iws" beforeDir="false" afterPath="$PROJECT_DIR$/Maud.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/radiographema/MaudText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/radiographema/MaudText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DiffrDataFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DiffrDataFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unitn/ing/rista/util/batchProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unitn/ing/rista/util/batchProcess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,26 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Debug MAUD" type="Remote">
+      <module name="Maud" />
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <option name="AUTO_RESTART" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="5005" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -45,11 +65,44 @@
       <updated>1658950572707</updated>
       <workItem from="1658950576530" duration="1360000" />
       <workItem from="1658952069074" duration="3099000" />
-      <workItem from="1659029649194" duration="9077000" />
+      <workItem from="1659029649194" duration="14902000" />
+      <workItem from="1659249028285" duration="3204000" />
+      <workItem from="1659367346611" duration="1593000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/it/unitn/ing/rista/util/batchProcess.java</url>
+          <line>232</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java</url>
+          <line>2876</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java</url>
+          <line>2887</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java</url>
+          <line>2890</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java</url>
+          <line>2881</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

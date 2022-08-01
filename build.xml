@@ -23,7 +23,7 @@
     <!--property name="java_version" value="1.8"/-->
     <property name="java_openjdk" location="${openjdk}"/>
     <property name="fpsm_build" location="${fpsmBuild}"/>
-    <property name="javac_options" value="--enable-preview --source=19"/>
+    <property name="javac_options" value="--enable-preview --source=19 -g"/>
 
     <target name="clean" description="Delete the build files.">
         <delete dir="${build_ant}"/>
@@ -2127,6 +2127,7 @@
             <option value="-Dapple.awt.application.name=Maud"/>
             <option value="-Dcom.apple.smallTabs=true"/>
             <option value="-Xmx16384M"/>
+            <option value="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"/>
             <option value="--enable-preview"/>
             <option value="--enable-native-access=ALL-UNNAMED"/>
             <option value="--add-opens"/>
