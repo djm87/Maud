@@ -21,7 +21,6 @@
 package com.radiographema;
 
 import java.lang.*;
-import java.util.concurrent.TimeUnit;
 
 import it.unitn.ing.rista.util.*;
 //import com.deadmoo.xgridagent.*;
@@ -126,11 +125,6 @@ public class MaudText {
 		  System.err.println(e);
 		  // returns null as the cause is nonexistent or unknown.
 		  System.err.println("Cause = " + e.getCause());
-	  }
-	  try {
-		  TimeUnit.MILLISECONDS.sleep(6000);
-	  } catch (InterruptedException e) {
-		  e.printStackTrace();
 	  }
     System.exit(0);
   }
