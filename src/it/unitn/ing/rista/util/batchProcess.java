@@ -65,7 +65,7 @@ public class batchProcess {
   String titleField = null;
   String stressFilename = null;
   String sin2psiOptions = null;
-  String summedDataFilename = null;
+  String diffOutputDataFilename = null;
   public String[] diclist = {"_riet_analysis_file",
                              "_riet_analysis_iteration_number", "_riet_analysis_wizard_index",
                              "_riet_analysis_fileToSave", "_riet_meas_datafile_name",
@@ -79,7 +79,7 @@ public class batchProcess {
 		                       "_maud_LCLS2_detector_config_file", "_publ_section_title",
 		                       "_maud_output_stress_filename", "_maud_output_stress_options",
 		                       "_riet_meas_datains_name", "_riet_meas_datafile_fitting",
-		                       "_maud_output_summed_data_filename"
+		                       "_maud_output_diff_data_filename"
   };
 
   public batchProcess(String insFileName) {
@@ -411,8 +411,8 @@ public class batchProcess {
 	        }
 	        avector.removeElementAt(i);
 	        loopitem--;
-        } else if (index == 25) { //"_maud_output_summed_data_filename"
-	        summedDataFilename = workingDirectory + item.thestring;
+        } else if (index == 25) { //"_maud_output_diff_data_filename"
+	        diffOutputDataFilename = workingDirectory + item.thestring;
 	        avector.removeElementAt(i);
 	        loopitem--;
         } else
@@ -653,9 +653,9 @@ public class batchProcess {
 				  }
 			  }
 		  }
-		if (summedDataFilename != null && !summedDataFilename.isEmpty()){
+		if (diffOutputDataFilename != null && !diffOutputDataFilename.isEmpty()){
 			Sample asample = analysis.getSample(0);
-			exportExperimentalComputedData(analysis, "", summedDataFilename);
+			exportExperimentalComputedData(analysis, "", diffOutputDataFilename);
 
 		}
 
