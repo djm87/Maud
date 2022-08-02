@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdfe55a7-bada-42d4-87e2-c852d7b689e7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Maud.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/Maud.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Maud.iws" beforeDir="false" afterPath="$PROJECT_DIR$/Maud.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/radiographema/MaudText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/radiographema/MaudText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,22 +80,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java</url>
-          <line>2876</line>
+          <line>2869</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java</url>
-          <line>2887</line>
+          <line>2880</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java</url>
-          <line>2890</line>
+          <line>2883</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java</url>
-          <line>2881</line>
+          <line>2874</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
