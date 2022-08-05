@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdfe55a7-bada-42d4-87e2-c852d7b689e7" name="Changes" comment="">
+    <list default="true" id="053525e9-3bfd-4f45-9fc1-adc72fbdc7c5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/Maud.iws" beforeDir="false" afterPath="$PROJECT_DIR$/Maud.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unitn/ing/rista/util/batchProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unitn/ing/rista/util/batchProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unitn/ing/rista/awt/DataD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unitn/ing/rista/awt/DataD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unitn/ing/rista/comp/LeastSquareFit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unitn/ing/rista/comp/LeastSquareFit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unitn/ing/rista/comp/launchRefine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unitn/ing/rista/comp/launchRefine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/Background.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/Background.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DataFileSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DiffrDataFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/DiffrDataFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/cal/GSASbankIntCalibration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unitn/ing/rista/diffr/cal/GSASbankIntCalibration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

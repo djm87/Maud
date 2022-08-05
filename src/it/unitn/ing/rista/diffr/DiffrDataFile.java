@@ -364,6 +364,8 @@ public class DiffrDataFile extends XRDcat {
     setDataType(DIFFRACTION_PATTERN);
     setImageIndex(-1);
 	  setString(datafileWeightFieldID, "1.0");
+	  useChebyshevPolynomials(false);
+
   }
 
 	@Override
@@ -3355,13 +3357,22 @@ public class DiffrDataFile extends XRDcat {
     refreshInterpolatedBkgComputation = true;
     getParent().refreshComputation = true;
     int datanumb = getTotalNumberOfData();
+//	  System.out.println("Reset background for " + thelabel);
     for (int i = 0; i < datanumb; i++) {
       setBkgFit(i, 0.0);
-	    setExpBkgFit(i, 0.0);
+		setExpBkgFit(i, 0.0);
     }
   }
 
-  public int getTotalNumberOfData() {
+	public void resetExperimentalBackground() {
+		int datanumb = getTotalNumberOfData();
+//		System.out.println("Reset background for " + thelabel);
+		for (int i = 0; i < datanumb; i++) {
+			setExpBkgFit(i, 0.0);
+		}
+	}
+
+	public int getTotalNumberOfData() {
     return datanumber;
   }
 
@@ -3757,9 +3768,9 @@ public class DiffrDataFile extends XRDcat {
 
   public void postComputation() {
 	  resetBackgroundInterpolated();
-    if (getDataFileSet().isBackgroundExperimental()) {
+/*    if (getDataFileSet().isBackgroundExperimental()) {
       addExperimentalBackground();
-    }
+    }*/
     if (getDataFileSet().isBackgroundInterpolated()) {
       addInterpolatedBackgroundFromResiduals();
     }
@@ -3806,8 +3817,13 @@ public class DiffrDataFile extends XRDcat {
       for (int j = starti; j < finali; j++) {
         double thetaord = getXData(j);
         double background = 0.0;
-        for (int k = 0; k < numbercoef; k++)
-          background += backgcoef[k] * Math.pow(thetaord, k);
+		  if (useChebyshevPolynomials()) {
+			  for (int k = 0; k < numbercoef; k++)
+				  background += backgcoef[k] * ChebyshevPolynomial.getT(k, thetaord);
+		  } else {
+			  for (int k = 0; k < numbercoef; k++)
+				  background += backgcoef[k] * Math.pow(thetaord, k);
+		  }
         double oscillatorBack = 0.0;
         if (oscillatorsNumber > 0)
           oscillatorBack = 1.0;
@@ -4215,7 +4231,9 @@ public class DiffrDataFile extends XRDcat {
 	}
 
 	public void addExperimentalBackground() {
-
+//		System.out.println("Computing experimental background for " + thelabel);
+//		if (expbkgfit[(startingindex + finalindex) / 2] != 0)
+//			throw new RuntimeException("Experimental background not reset!");
     DiffrDataFile expDataFile = getDataFileSet().getBackgroundDataFile(this);
 		double countTime = expDataFile.monitorCounts;
 		if (useCountTimeToScale())
@@ -6226,8 +6244,9 @@ public class DiffrDataFile extends XRDcat {
 					double linearCorrection = 1.0;
 					if (isTOF) { // dspacingbase
 							double arg1 = abs * getWavelengthFromDSpace(positions[i][j][0]);
+							if (i == 50)
+//						      System.out.println(abs + " " + positions[i][j][0] + " " + arg1 + " " + layer_abs[0]);
 							if (arg1 != 0.0) {
-//								System.out.println(abs + " " + positions[i][j][0] + " " + getWavelengthFromDSpace(positions[i][j][0]));
 								if (arg1 < 200.0)
 									arg1 = Math.exp(-arg1);
 								else
@@ -6716,6 +6735,8 @@ public class DiffrDataFile extends XRDcat {
     JTextField displacementYTF = null;
     JTextField absorptionFactorTF = null;
 
+		JCheckBox chebUseCB;
+
     public JDataFileOptionsD(Frame parent, XRDcat obj) {
 
       super(parent, obj);
@@ -6727,8 +6748,24 @@ public class DiffrDataFile extends XRDcat {
       String p1String[] = {"Background pol.",
           "Error position pol.", "As bkg counts", "Sample par."};
 
-      polynomialP = new JParameterListPane[Nparameterloop];
-      for (int i = 0; i < Nparameterloop; i++) {
+
+	    JPanel polinomialBkgPanel = new JPanel();
+	    polinomialBkgPanel.setLayout(new BorderLayout(3, 3));
+	    JPanel chebPanel = new JPanel();
+	    chebPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 1, 1));
+
+	    polynomialP = new JParameterListPane[Nparameterloop];
+
+	    chebUseCB = new JCheckBox("Chebyshev polynomial");
+	    chebUseCB.setToolTipText(
+			    "Check this box to use Chebyshev polynomial instead of normal polynomial function");
+	    chebPanel.add(chebUseCB);
+	    polinomialBkgPanel.add(BorderLayout.NORTH, chebPanel);
+	    polynomialP[0] = new JParameterListPane(this, false, true);
+	    p1.addTab(p1String[0], null, polinomialBkgPanel);
+	    polinomialBkgPanel.add(BorderLayout.CENTER, polynomialP[0]);
+
+      for (int i = 1; i < Nparameterloop; i++) {
         polynomialP[i] = new JParameterListPane(this, false, true);
         p1.addTab(p1String[i], null, polynomialP[i]);
       }
@@ -6767,6 +6804,7 @@ public class DiffrDataFile extends XRDcat {
       addComponenttolist(displacementZTF, getParameter(sampleDisplacementZID));
 	    absorptionFactorTF.setText(getParameter(absorptionFactorID).getValue());
 	    addComponenttolist(absorptionFactorTF, getParameter(absorptionFactorID));
+	    chebUseCB.setSelected(useChebyshevPolynomials());
     }
 
     @Override
@@ -6779,7 +6817,7 @@ public class DiffrDataFile extends XRDcat {
       removeComponentfromlist(displacementZTF);
 	    getParameter(absorptionFactorID).setValue(absorptionFactorTF.getText());
 	    removeComponentfromlist(absorptionFactorTF);
-
+	    useChebyshevPolynomials(chebUseCB.isSelected());
     }
 
     @Override
@@ -6822,7 +6860,7 @@ public class DiffrDataFile extends XRDcat {
         output.newLine();
         output.write("# On the following loop you will have:");
         output.newLine();
-        output.write("#  2theta/d coordinate   experimental intensity  calculated intensity  background");
+        output.write("#  2theta/d_coordinate  experimental_intensity  calculated_intensity  background  esd    exp_calibrated_intensity  calc_calibrated_intensity");
         for (int j = 0; j < numberphases; j++)
           output.write("  intensity " + getFilePar().getActiveSample().getPhase(j));
         output.newLine();
@@ -6839,14 +6877,24 @@ public class DiffrDataFile extends XRDcat {
         output.newLine();
         output.write("_pd_proc_intensity_weight");
         output.newLine();
+        output.write("_pd_proc_intensity_total_cal");
+        output.newLine();
+        output.write(DiffrDataFile.intensityCalcCIFstring + "_cal");
+        output.newLine();
         for (int j = 0; j < numberphases; j++) {
           output.write(DiffrDataFile.intensityCalcCIFstring);
           output.newLine();
         }
         for (int i = startingindex; i < finalindex; i++) {
+<<<<<<< HEAD
 //          double intensE = finalIntensityCalibration(getYData(i));
 			 double intensE = getYData(i);
+=======
+	      double intensE = getYData(i);
+          double intensEcal = finalIntensityCalibration(intensE);
+>>>>>>> upstream/version2
           double intens = getFit(i);
+          double intenscal = finalIntensityCalibration(intens);
           double xcoorddata = 0.0;
 //          if (datafile[0].originalNotCalibrated)
 //            xcoorddata = datafile[0].getXDataOriginal(i);
@@ -6855,16 +6903,26 @@ public class DiffrDataFile extends XRDcat {
           output.write(" " + Fmt.format(xcoorddata) + " " + Fmt.format(intensE) + " " + Fmt.format(intens));
           output.write(" " + Fmt.format(getBkgFit(i)));
           output.write(" " + Fmt.format(getWeight(i)));
+          output.write(" " + Fmt.format(intensEcal));
+          output.write(" " + Fmt.format(intenscal));
           for (int j = 0; j < numberphases; j++)
             output.write(" " + Fmt.format(getPhaseFit(i, j)));
           output.newLine();
         }
       } catch (IOException io) {
       }
+<<<<<<< HEAD
 		if(closeFile)
       try {
         output.close();
       } catch (IOException io) {
+=======
+	  if (closeFile) {
+        try {
+          output.close();
+        } catch (IOException io) {
+        }
+>>>>>>> upstream/version2
       }
     }
   }
